@@ -63,8 +63,9 @@ void setLedColor() {
 
     for (int i = 0; i < NumLeds; i++) {
         pixels.setPixelColor(i, pixels.Color(colors[0], colors[1], colors[2]));
+        delay(10);
     }
-
+    delay(10);
     pixels.show();
 }
 
