@@ -71,6 +71,30 @@ class MainActivity : AppCompatActivity() {
                 set_color_btn?.isEnabled = true
                 picker?.isEnabled = true
             }
+
+            gatt?.readCharacteristic(all_char)
+        }
+
+        override fun onCharacteristicRead(
+            gatt: BluetoothGatt?,
+            characteristic: BluetoothGattCharacteristic?,
+            status: Int
+        ) {
+            super.onCharacteristicRead(gatt, characteristic, status)
+
+            if (!gatt?.device?.address.equals(LED_CONTROLLER_ADDR, true)) return
+
+            if (characteristic == null || characteristic.uuid == null) return
+
+            if (characteristic.uuid != LED_CHAR_ALL_UUID) return
+
+            val data = characteristic.value.toUByteArray()
+
+            runOnUiThread{
+                seek_r?.progress = data[0].toInt()
+                seek_g?.progress = data[1].toInt()
+                seek_b?.progress = data[2].toInt()
+            }
         }
     }
 
