@@ -24,65 +24,191 @@
                   app:layout_constraintBottom_toTopOf="@id/button_set_color"
                   android:orientation="vertical"
                   android:id="@+id/color_picker">
-        <View android:layout_width="match_parent" android:layout_height="30dp"
-              android:background="#000000"
-              android:layout_margin="3dp"
-              android:id="@+id/view_led_color"/>
-
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:layout_margin="5dp"
-                      android:duplicateParentState="true"
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
                       android:orientation="horizontal"
-                      android:gravity="center_vertical">
+                      android:gravity="center_vertical"
+                      android:layout_margin="3dp"
+                      android:duplicateParentState="true"
+                      >
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:duplicateParentState="true"
-                      android:layout_margin="5dp"
-                      android:text="R" android:textSize="20sp"/>
-            <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
-                     android:id="@+id/seek_color_r"
+                      android:text="変化時間"/>
+            <Spinner android:layout_width="match_parent" android:layout_height="wrap_content"
                      android:duplicateParentState="true"
-                     android:layout_weight="1"
-                     android:thumbTint="#ff0000"
-                     android:progressTint="#ff0000"
-                     android:min="0"
-                     android:max="255"/>
+                     android:gravity="right|center_vertical"
+                     android:layout_weight="1" android:id="@+id/time_spinner"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:duplicateParentState="true"
+                      android:text="x 200msec"/>
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:layout_margin="5dp"
                       android:duplicateParentState="true"
-                      android:orientation="horizontal"
-                      android:gravity="center_vertical">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:duplicateParentState="true"
-                      android:layout_margin="5dp"
-                      android:text="G" android:textSize="20sp"/>
-            <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
-                     android:id="@+id/seek_color_g"
-                     android:duplicateParentState="true"
-                     android:layout_weight="1"
-                     android:thumbTint="#00ff00"
-                     android:progressTint="#00ff00"
-                     android:min="0"
-                     android:max="255"/>
-        </LinearLayout>
+                      android:orientation="horizontal">
+
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:layout_margin="5dp"
+                      android:orientation="vertical" android:layout_weight="1"
                       android:duplicateParentState="true"
-                      android:orientation="horizontal"
-                      android:gravity="center_vertical">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:layout_margin="5dp"
+                      android:id="@+id/layout_start_color">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent"
+                          android:duplicateParentState="true"
+                          android:orientation="horizontal" android:gravity="center">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:duplicateParentState="true"
+                          android:text="開始色" android:layout_gravity="center_vertical"/>
+                <View android:layout_width="match_parent" android:layout_height="30dp"
+                      android:background="#000000"
+                      android:layout_margin="3dp"
+                      android:id="@+id/view_led_color_start"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:layout_margin="5dp"
+                          android:duplicateParentState="true"
+                          android:orientation="horizontal"
+                          android:gravity="center_vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:duplicateParentState="true"
+                          android:layout_margin="5dp"
+                          android:text="R" android:textSize="20sp"/>
+                <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                         android:id="@+id/seek_color_r_start"
+                         android:duplicateParentState="true"
+                         android:layout_weight="1"
+                         android:thumbTint="#ff0000"
+                         android:progressTint="#ff0000"
+                         android:min="0"
+                         android:max="255"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:layout_margin="5dp"
+                          android:duplicateParentState="true"
+                          android:orientation="horizontal"
+                          android:gravity="center_vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:duplicateParentState="true"
+                          android:layout_margin="5dp"
+                          android:text="G" android:textSize="20sp"/>
+                <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                         android:id="@+id/seek_color_g_start"
+                         android:duplicateParentState="true"
+                         android:layout_weight="1"
+                         android:thumbTint="#00ff00"
+                         android:progressTint="#00ff00"
+                         android:min="0"
+                         android:max="255"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:layout_margin="5dp"
+                          android:duplicateParentState="true"
+                          android:orientation="horizontal"
+                          android:gravity="center_vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:layout_margin="5dp"
+                          android:duplicateParentState="true"
+                          android:text="B" android:textSize="20sp"/>
+                <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                         android:id="@+id/seek_color_b_start"
+                         android:duplicateParentState="true"
+                         android:layout_weight="1"
+                         android:thumbTint="#0000ff"
+                         android:progressTint="#0000ff"
+                         android:min="0"
+                         android:max="255"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent"
                       android:duplicateParentState="true"
-                      android:text="B" android:textSize="20sp"/>
-            <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
-                     android:id="@+id/seek_color_b"
-                     android:duplicateParentState="true"
-                     android:layout_weight="1"
-                     android:thumbTint="#0000ff"
-                     android:progressTint="#0000ff"
-                     android:min="0"
-                     android:max="255"/>
+                      android:orientation="vertical">
+            <Button android:layout_width="wrap_content" android:layout_height="match_parent"
+                    android:layout_weight="1" android:layout_margin="5dp"
+                    android:minWidth="0dp"
+                    android:duplicateParentState="true"
+                    android:text="→" android:id="@+id/btn_copy_to_end"/>
+            <Button android:layout_width="wrap_content" android:layout_height="match_parent"
+                    android:layout_weight="1" android:layout_margin="5dp"
+                    android:minWidth="0dp"
+                    android:duplicateParentState="true"
+                    android:text="←" android:id="@+id/btn_copy_to_start"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:duplicateParentState="true"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:id="@+id/layout_end_color">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent"
+                          android:duplicateParentState="true"
+                          android:orientation="horizontal" android:gravity="center">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:duplicateParentState="true"
+                          android:text="終了色" android:layout_gravity="center_vertical"/>
+                <View android:layout_width="match_parent" android:layout_height="30dp"
+                      android:background="#000000"
+                      android:layout_margin="3dp"
+                      android:id="@+id/view_led_color_end"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:layout_margin="5dp"
+                          android:duplicateParentState="true"
+                          android:orientation="horizontal"
+                          android:gravity="center_vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:duplicateParentState="true"
+                          android:layout_margin="5dp"
+                          android:text="R" android:textSize="20sp"/>
+                <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                         android:id="@+id/seek_color_r_end"
+                         android:duplicateParentState="true"
+                         android:layout_weight="1"
+                         android:thumbTint="#ff0000"
+                         android:progressTint="#ff0000"
+                         android:min="0"
+                         android:max="255"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:layout_margin="5dp"
+                          android:duplicateParentState="true"
+                          android:orientation="horizontal"
+                          android:gravity="center_vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:duplicateParentState="true"
+                          android:layout_margin="5dp"
+                          android:text="G" android:textSize="20sp"/>
+                <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                         android:id="@+id/seek_color_g_end"
+                         android:duplicateParentState="true"
+                         android:layout_weight="1"
+                         android:thumbTint="#00ff00"
+                         android:progressTint="#00ff00"
+                         android:min="0"
+                         android:max="255"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:layout_margin="5dp"
+                          android:duplicateParentState="true"
+                          android:orientation="horizontal"
+                          android:gravity="center_vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:layout_margin="5dp"
+                          android:duplicateParentState="true"
+                          android:text="B" android:textSize="20sp"/>
+                <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                         android:id="@+id/seek_color_b_end"
+                         android:duplicateParentState="true"
+                         android:layout_weight="1"
+                         android:thumbTint="#0000ff"
+                         android:progressTint="#0000ff"
+                         android:min="0"
+                         android:max="255"/>
+            </LinearLayout>
+        </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
